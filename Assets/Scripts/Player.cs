@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float _speed = 10f;
     string _isWalking = "isWalking";
-    bool _isHoldingWeapon = false;
+    string _isHoldingWeapon = "isHoldingWeapon";
+    bool _holdingWeapon = false;
+    Transform _weapon;
     Animator _animator;
 
 
@@ -17,12 +19,31 @@ public class Player : MonoBehaviour
         {
             Debug.LogWarning("Player.cs: Animator is not found");
         }
+
+        _weapon = transform.GetChild(0);
+        if (_weapon == null)
+            Debug.LogWarning("Player.cs: Weapon is not found");
+
     }
 
     private void Update()
     {
         float dt = Time.deltaTime;
         Movement(dt);
+
+        if (Input.GetKeyDown(KeyCode.I))
+            _holdingWeapon = !_holdingWeapon;
+
+        if (_holdingWeapon == true)
+        {
+            _weapon.transform.gameObject.SetActive(_holdingWeapon);
+            _animator.SetBool(_isHoldingWeapon, true);
+        }
+        else 
+        {
+            _weapon.transform.gameObject.SetActive(_holdingWeapon);
+            _animator.SetBool(_isHoldingWeapon, false);
+        }
 
     }
 
