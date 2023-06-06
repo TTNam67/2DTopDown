@@ -52,24 +52,32 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
+        if (horizontalInput == 0f && verticalInput == 0f)
+        {
+            _animator.SetBool(_isWalking, false);
+        }
+        else 
+        {
+            _animator.SetBool(_isWalking, true);
+        }
+
         if (horizontalInput < 0f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-            _animator.SetBool(_isWalking, true);
         }
         else if (horizontalInput > 0f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
-            _animator.SetBool(_isWalking, true);
-        }
-        else if (horizontalInput == 0f)
-        {
-            _animator.SetBool(_isWalking, false);
         }
 
         Vector2 direction = new Vector2(horizontalInput, verticalInput);
 
         transform.Translate(direction * _speed * dt);
+    }
+
+    public Vector3 GetDirection()
+    {
+        return transform.localScale;
     }
 }
 
