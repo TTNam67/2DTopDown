@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     AudioSource _audioSource;
     Player _player;
-    float _speed = 14f;
+    float _speed = 15f;
     Vector2 _direction;
     void Start()
     {

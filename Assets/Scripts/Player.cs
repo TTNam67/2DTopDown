@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float _speed = 10f;
-    string _isWalking = "isWalking";
-    string _isHoldingWeapon = "isHoldingWeapon";
+    float _speed = 7f;
+    string a_isWalking = "isWalking";
+    string a_isHoldingWeapon = "isHoldingWeapon";
     bool _holdingWeapon = false;
     Transform _weapon;
     Animator _animator;
@@ -37,12 +37,12 @@ public class Player : MonoBehaviour
         if (_holdingWeapon == true)
         {
             _weapon.transform.gameObject.SetActive(_holdingWeapon);
-            _animator.SetBool(_isHoldingWeapon, true);
+            _animator.SetBool(a_isHoldingWeapon, true);
         }
         else 
         {
             _weapon.transform.gameObject.SetActive(_holdingWeapon);
-            _animator.SetBool(_isHoldingWeapon, false);
+            _animator.SetBool(a_isHoldingWeapon, false);
         }
 
     }
@@ -54,11 +54,11 @@ public class Player : MonoBehaviour
 
         if (horizontalInput == 0f && verticalInput == 0f)
         {
-            _animator.SetBool(_isWalking, false);
+            _animator.SetBool(a_isWalking, false);
         }
         else 
         {
-            _animator.SetBool(_isWalking, true);
+            _animator.SetBool(a_isWalking, true);
         }
 
         if (horizontalInput < 0f)
