@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     AudioSource _audioSource;
     Player _player;
-    float _speed = 15f;
+    float _speed = 15f, _damage = 6f;
     Vector2 _direction;
     void Start()
     {
@@ -38,5 +38,16 @@ public class Bullet : MonoBehaviour
                                         _player.transform.position.y - transform.position.y);
         if (disToPlayer.x > 9.5f || disToPlayer.x < -9.5f)
             Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            other.transform.GetComponent<EnemyHealth>().TakeDamage(_damage);
+
+        }   
+
+        Destroy(this.gameObject); 
     }
 }
