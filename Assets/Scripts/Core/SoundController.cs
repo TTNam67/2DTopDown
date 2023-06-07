@@ -11,6 +11,7 @@ public class SoundController : MonoBehaviour
         if (_audioSource == null)
             Debug.LogWarning("SoundController.cs: AudioSource is not found");
 
+        _audioSource.volume = 0.9f;
         _audioSource.Play();
     }
 

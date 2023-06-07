@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     AudioSource _audioSource;
     EnemyActionScheduler _enemyActionScheduler;
     EnemyMover _enemyMover;
+    float _groundingSoundScale = 0.24f, _explosionSoundScale = 0.3f;
     
     int _isMoving = 1;
 
@@ -54,13 +55,17 @@ public class EnemyController : MonoBehaviour
     public void GroundingSound()
     {
         _audioSource.clip = _audioClip[(int)SoundEffect.Grounding];
+        _audioSource.volume = _groundingSoundScale;
         _audioSource.Play();
+        
     }
 
     public void ExplosionSound()
     {
         _audioSource.clip = _audioClip[(int)SoundEffect.Die];
+        _audioSource.volume = _explosionSoundScale;
         _audioSource.Play();
+        // _audioSource.volume = 1f;
     }
 
     public void Moving()

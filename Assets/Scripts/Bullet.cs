@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     AudioSource _audioSource;
     Player _player;
     float _speed = 15f, _damage = 6f;
+    float _soundScale = 0.35f;
     Vector2 _direction;
     void Start()
     {
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
         if (_player == null)
             Debug.LogWarning("Bullet.cs: _player is null!");
         
+        _audioSource.volume = _soundScale;
         _audioSource.Play();
         _direction = new Vector2(_player.GetDirection().x, 0f);
     }
