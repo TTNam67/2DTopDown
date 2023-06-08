@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
@@ -35,6 +35,9 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         _image.sprite = _default;
         _audioSource.PlayOneShot(_uncompressedClip);
+
+        Invoke("LoadGameScene", 0f);
+
         Vector2 anchoredPosition = _rectTransform.anchoredPosition;
 
         // Modify the Y component to the new value
@@ -42,6 +45,7 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
         // Assign the modified anchored position back to the RectTransform
         _rectTransform.anchoredPosition = anchoredPosition;
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -55,7 +59,12 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
         // Assign the modified anchored position back to the RectTransform
         _rectTransform.anchoredPosition = anchoredPosition;
+        
+        
+    }
 
+    void LoadGameScene()
+    {
         SceneManager.LoadScene(1);
     }
 }

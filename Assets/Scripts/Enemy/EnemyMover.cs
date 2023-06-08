@@ -68,3 +68,7 @@ public class EnemyMover : MonoBehaviour, IEAction
         _enemyController.Moving();
     }
 }
+
+
+
+

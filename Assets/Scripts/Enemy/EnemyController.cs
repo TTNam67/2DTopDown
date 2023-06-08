@@ -54,8 +54,10 @@ public class EnemyController : MonoBehaviour
     public void GroundingSound()
     {
         // _audioSource.clip = _audioClip[(int)SoundEffect.Grounding];
-        _audioSource.volume = _groundingSoundScale;
-        _audioSource.PlayOneShot(_audioClip[(int)SoundEffect.Grounding]);
+
+
+        // _audioSource.volume = _groundingSoundScale;
+        // _audioSource.PlayOneShot(_audioClip[(int)SoundEffect.Grounding]);
         
     }
 
@@ -64,6 +66,7 @@ public class EnemyController : MonoBehaviour
         // _audioSource.clip = _audioClip[(int)SoundEffect.Die];
         _audioSource.volume = _explosionSoundScale;
         _audioSource.PlayOneShot(_audioClip[(int)SoundEffect.Die]);
+        
         // _audioSource.volume = 1f;
     }
 
