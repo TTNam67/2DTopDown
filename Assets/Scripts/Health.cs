@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _healthPoint = 50f;
+    [SerializeField] private float _healthPoint = 40f;
     Animator _animator;
     string a_isDead = "isDead";
     bool _isDead = false;
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        
+        // print(_healthPoint);
     }
 
     public void TakeDamage(float damage)

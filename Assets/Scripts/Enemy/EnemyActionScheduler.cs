@@ -10,12 +10,11 @@ public class EnemyActionScheduler : MonoBehaviour
     {
         if (_currentAction == action) 
         {
-            print("check null");
             return;
         }
         if (_currentAction != null)
         {
-            print("Check");
+        
             _currentAction.Cancel();
         }
 
@@ -24,7 +23,7 @@ public class EnemyActionScheduler : MonoBehaviour
 
     public void CancelCurrentAction()
     {
-        print("CheckCancel");
+        
         StartAction(null);
     }
 }

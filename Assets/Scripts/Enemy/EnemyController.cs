@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,23 +15,24 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private AudioClip[] _audioClip;
     AudioSource _audioSource;
+    GameObject _target;
     EnemyActionScheduler _enemyActionScheduler;
     EnemyMover _enemyMover;
+    EnemyAttacker _enemyAttacker;
+    Animator _animator;
     float _groundingSoundScale = 0.24f, _explosionSoundScale = 0.3f;
+    string a_isAttack = "isAttack";
     
-    int _isMoving = 0;
-
-    // Getters
-    public int IsMoving()
-    {
-        return _isMoving;
-    }
 
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         if (_audioSource == null)
             Debug.LogWarning("EnemyController.cs: _audioSource is null!");
+
+        _target = GameObject.FindWithTag("Player");
+        if (_target == null)
+            Debug.LogWarning("EnemyController.cs: _target is null!");
 
         _enemyActionScheduler = GetComponent<EnemyActionScheduler>();
         if (_enemyActionScheduler == null)
@@ -40,13 +42,30 @@ public class EnemyController : MonoBehaviour
         if (_enemyMover == null)
             Debug.LogWarning("EnemyController.cs: _enemyMover is null!");	
 
+        _enemyAttacker = GetComponent<EnemyAttacker>();
+        if (_enemyAttacker == null)
+            Debug.LogWarning("EnemyController.cs: _enemyAttacker is null!");
+
+        _animator = GetComponent<Animator>();
+        if (_animator == null)
+            Debug.LogWarning("EnemyController.cs: _animator is null");
+
         // _enemyMover.StartMoving();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 targetPosi = new Vector2(_target.transform.position.x, _target.transform.position.y);
+
+        if (Vector2.Distance(transform.position, targetPosi) <= _enemyAttacker.GetAttackRange())
+        {
+            _enemyAttacker.AttackBehavour(_target.transform);
+        }
+        else 
+        {
+            _enemyMover.MoveBehaviour();
+        }
     }
 
     
@@ -54,7 +73,6 @@ public class EnemyController : MonoBehaviour
     public void GroundingSound()
     {
         // _audioSource.clip = _audioClip[(int)SoundEffect.Grounding];
-
 
         // _audioSource.volume = _groundingSoundScale;
         // _audioSource.PlayOneShot(_audioClip[(int)SoundEffect.Grounding]);
@@ -70,15 +88,12 @@ public class EnemyController : MonoBehaviour
         // _audioSource.volume = 1f;
     }
 
-    public void Moving()
-    {
-        _isMoving = 1;
-    }
+    
 
-    public void StopMoving()
-    {
-        _isMoving = 0;
-    }
+    // public GameObject TargetObject()
+    // {
+    //     return _target;
+    // }
 
 }
 

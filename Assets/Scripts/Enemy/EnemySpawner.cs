@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] _enemyPrefabs;
     Transform _playerTransform;
-    float _spawnDistance = 7f;
+    float _spawnDistance = 10f;
     void Start()
     {
         _playerTransform = GameObject.FindWithTag("Player").transform;

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour, IEAction
 {
-    [SerializeField] private float _speed = 1f;
-    Transform _playerTransform;
+    private float _speed = 1.5f, _speedScale = 1f;
+    GameObject _target;
     EnemyController _enemyController;
     EnemyActionScheduler _enemyActionScheduler;
 
     Vector2 _direction;
+    int _isMoving = 0;
     void Start()
     {
-        _playerTransform = GameObject.FindWithTag("Player").transform;
-        if (_playerTransform == null)
-            Debug.LogWarning("EnemyMover.cs: _playerTransform is null!");
+        _target = GameObject.FindWithTag("Player");
+        if (_target == null)
+            Debug.LogWarning("EnemyMover.cs: _target is null!");
 
         _enemyController = GetComponent<EnemyController>();
         if (_enemyController == null)
@@ -26,46 +27,63 @@ public class EnemyMover : MonoBehaviour, IEAction
 
         //Before make the first move, enemy needs to be determined the direction
         //towards the player
-        DetermineDirection();
-        StartMoving();
+        DetermineDirection(_target.transform);
+        MoveBehaviour();
     }
 
     // Update is called once per frame
     void Update()
     {
         float dt = Time.deltaTime;
-        Movement(dt);
+        if (_isMoving == 1)
+            MoveTowardTarget(_target.transform, dt);
     }
 
-    private void Movement(float dt)
+    public void MoveTowardTarget(Transform target, float dt)
     {
-        
-        DetermineDirection();
-        transform.Translate(_direction * dt * _speed * _enemyController.IsMoving());
+        DetermineDirection(target);
+        transform.Translate(_direction * dt * _speed * GetSpeedScale());
     }
 
-    private void DetermineDirection()
+    private void DetermineDirection(Transform target)
     {
-        _direction = (_playerTransform.position - transform.position).normalized;
+        _direction = (target.position - transform.position).normalized;
 
-        if (_enemyController.IsMoving() == 0)
-        {
-            if (_direction.x < 0f)
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            else if (_direction.x > 0f)
-                transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        if (_direction.x < 0f)
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        else if (_direction.x > 0f)
+            transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     public void Cancel()
     {
-        _enemyController.StopMoving();
+        StopMoving();
     }
 
-    public void StartMoving()
+    public void MoveBehaviour()
     {
         _enemyActionScheduler.StartAction(this);
-        _enemyController.Moving();
+        Moving();
+    }
+
+    public void Moving()
+    {
+        _isMoving = 1;
+    }
+
+    public void StopMoving()
+    {
+        _isMoving = 0;
+    }
+
+    public void SetSpeedScale(float speedScale)
+    {
+        _speedScale = speedScale;
+    }
+
+    public float GetSpeedScale()
+    {
+        return _speedScale;
     }
 }
 

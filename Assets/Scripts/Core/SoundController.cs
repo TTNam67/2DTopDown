@@ -13,7 +13,12 @@ public class SoundController : MonoBehaviour
 
         _audioSource.volume = 0.9f;
         _audioSource.Play();
+
+        DontDestroyOnLoad(this.gameObject);
+        
     }
+
+    
 
     // Update is called once per frame
     void Update()

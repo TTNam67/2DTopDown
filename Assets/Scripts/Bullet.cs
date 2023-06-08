@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private AudioClip[] _fireSounds;
     AudioSource _audioSource;
     Player _player;
-    float _speed = 15f, _damage = 6f;
+    float _speed = 20f, _damage = 6f;
     float _soundScale = 0.35f;
     Vector2 _direction;
     void Start()

@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float _healthPoint = 30f;
     Animator _animator;
     EnemyActionScheduler _enemiesActionScheduler;
+    EnemyMover _enemyMover;
     string a_isDead = "isDead";
     bool _isDead = false;
 
@@ -29,6 +30,10 @@ public class EnemyHealth : MonoBehaviour
         _enemiesActionScheduler = GetComponent<EnemyActionScheduler>();
         if (_enemiesActionScheduler == null)
             Debug.LogWarning("EnemyHealth.cs: _enemiesActionScheduler is null");
+        
+        _enemyMover = GetComponent<EnemyMover>();
+        if (_enemyMover == null)
+            Debug.LogWarning("EnemyHealth.cs: _enemyMover is null");
     }
 
     void Update()
@@ -50,8 +55,8 @@ public class EnemyHealth : MonoBehaviour
         _enemiesActionScheduler.transform.GetComponent<CapsuleCollider2D>().enabled = false;
         _animator.SetBool(a_isDead, true);
         _enemiesActionScheduler.CancelCurrentAction();
-        
-        Destroy(this.gameObject, 1.5f);
+        _enemyMover.StopMoving();
 
+        Destroy(this.gameObject, 1.5f);
     }
 }
