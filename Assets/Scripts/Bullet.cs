@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] _fireSounds;
     AudioSource _audioSource;
     Player _player;
     float _speed = 15f, _damage = 6f;
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour
             Debug.LogWarning("Bullet.cs: _player is null!");
         
         _audioSource.volume = _soundScale;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_fireSounds[0]);
         _direction = new Vector2(_player.GetDirection().x, 0f);
     }
 

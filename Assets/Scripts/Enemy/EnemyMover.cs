@@ -8,6 +8,8 @@ public class EnemyMover : MonoBehaviour, IEAction
     Transform _playerTransform;
     EnemyController _enemyController;
     EnemyActionScheduler _enemyActionScheduler;
+
+    Vector2 _direction;
     void Start()
     {
         _playerTransform = GameObject.FindWithTag("Player").transform;
@@ -21,6 +23,11 @@ public class EnemyMover : MonoBehaviour, IEAction
         _enemyActionScheduler = GetComponent<EnemyActionScheduler>();
         if (_enemyActionScheduler == null)
             Debug.LogWarning("EnemyMover.cs: _enemyActionScheduler is null!");
+
+        //Before make the first move, enemy needs to be determined the direction
+        //towards the player
+        DetermineDirection();
+        StartMoving();
     }
 
     // Update is called once per frame
@@ -32,22 +39,22 @@ public class EnemyMover : MonoBehaviour, IEAction
 
     private void Movement(float dt)
     {
-        Vector2 direction = (_playerTransform.position - transform.position).normalized;
+        
+        DetermineDirection();
+        transform.Translate(_direction * dt * _speed * _enemyController.IsMoving());
+    }
+
+    private void DetermineDirection()
+    {
+        _direction = (_playerTransform.position - transform.position).normalized;
 
         if (_enemyController.IsMoving() == 0)
         {
-            if (direction.x < 0f)
-            {
+            if (_direction.x < 0f)
                 transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-            else if (direction.x > 0f)
-            {
+            else if (_direction.x > 0f)
                 transform.localScale = new Vector3(1f, 1f, 1f);
-            }
         }
-
-
-        transform.Translate(direction * dt * _speed * _enemyController.IsMoving());
     }
 
     public void Cancel()
@@ -58,5 +65,6 @@ public class EnemyMover : MonoBehaviour, IEAction
     public void StartMoving()
     {
         _enemyActionScheduler.StartAction(this);
+        _enemyController.Moving();
     }
 }

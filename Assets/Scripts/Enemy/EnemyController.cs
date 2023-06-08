@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     EnemyMover _enemyMover;
     float _groundingSoundScale = 0.24f, _explosionSoundScale = 0.3f;
     
-    int _isMoving = 1;
+    int _isMoving = 0;
 
     // Getters
     public int IsMoving()
@@ -40,8 +40,7 @@ public class EnemyController : MonoBehaviour
         if (_enemyMover == null)
             Debug.LogWarning("EnemyController.cs: _enemyMover is null!");	
 
-        _enemyMover.StartMoving();
-        SetVolume();
+        // _enemyMover.StartMoving();
     }
 
     // Update is called once per frame
@@ -54,17 +53,17 @@ public class EnemyController : MonoBehaviour
 
     public void GroundingSound()
     {
-        _audioSource.clip = _audioClip[(int)SoundEffect.Grounding];
+        // _audioSource.clip = _audioClip[(int)SoundEffect.Grounding];
         _audioSource.volume = _groundingSoundScale;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_audioClip[(int)SoundEffect.Grounding]);
         
     }
 
     public void ExplosionSound()
     {
-        _audioSource.clip = _audioClip[(int)SoundEffect.Die];
+        // _audioSource.clip = _audioClip[(int)SoundEffect.Die];
         _audioSource.volume = _explosionSoundScale;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_audioClip[(int)SoundEffect.Die]);
         // _audioSource.volume = 1f;
     }
 
@@ -78,10 +77,5 @@ public class EnemyController : MonoBehaviour
         _isMoving = 0;
     }
 
-    private void SetVolume()
-    {
-
-    }
-
-
 }
+
