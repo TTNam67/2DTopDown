@@ -42,15 +42,4 @@ public class Bullet : MonoBehaviour
         if (disToPlayer.x > 9.5f || disToPlayer.x < -9.5f)
             Destroy(this.gameObject);
     }
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        if (other.transform.tag == "Enemy")
-        {
-            other.transform.GetComponent<EnemyHealth>().TakeDamage(_damage);
-
-        }   
-
-        Destroy(this.gameObject); 
-    }
 }
