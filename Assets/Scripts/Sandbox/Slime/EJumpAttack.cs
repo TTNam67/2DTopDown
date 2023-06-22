@@ -17,7 +17,7 @@ public class EJumpAttack : BaseState
     {
         _eMovementSM = (EMovementSM)stateMachine;
         _animator = _eMovementSM.GetAnimator();
-        _target = _eMovementSM.GetTarget().transform;
+        _target = _eMovementSM._target.transform;
         _rigidbody2D = _eMovementSM.GetRigidbody2D();
     }
 
@@ -25,7 +25,7 @@ public class EJumpAttack : BaseState
     {
         base.Enter();
         _animator.SetBool(a_isJumpAttack, true);
-        _eMovementSM.jumpState.SetSpeedScale(_speedScale);
+        _eMovementSM._jumpState.SetSpeedScale(_speedScale);
     }
 
     public override void UpdateLogic()
@@ -34,24 +34,24 @@ public class EJumpAttack : BaseState
 
         if (Vector2.Distance(_target.transform.position, _rigidbody2D.position) > _eMovementSM._attackRange)
         {
-            _eMovementSM.ChangeState(_eMovementSM.idleState);
+            _eMovementSM.ChangeState(_eMovementSM._idleState);
         }
 
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
-        _eMovementSM.jumpState.DetermineDirection();
+        _eMovementSM._jumpState.DetermineDirection();
     }
 
     public override void UpdatePhysics()
     {
         base.UpdatePhysics();
-        _eMovementSM.jumpState.MakeTheMove();
+        _eMovementSM._jumpState.MakeTheMove();
     }
 
     public override void Exit()
     {
         base.Exit();
         _animator.SetBool(a_isJumpAttack, false);
-        _eMovementSM.jumpState.SetSpeedScale(1f);
+        _eMovementSM._jumpState.SetSpeedScale(1f);
     }
 }

@@ -27,7 +27,7 @@ public class EJump : EPatrol
 
     public void DetermineDirection()
     {
-        _direction = (Vector2)_target.position - _rigidbody2D.position;
+        _direction = (Vector2)_target.transform.position - _rigidbody2D.position;
         _direction.Normalize();
 
         if (_direction.x < -Mathf.Epsilon)

@@ -17,6 +17,7 @@ public class PStateMachine : StateMachine
 
     private void Awake()
     {
+        Debug.Log("PStateMachine");
         _pIdleState = new PIdle(this);
         _pMovingState = new PMoving(this);
         _pAttackState = new PAttack(this);

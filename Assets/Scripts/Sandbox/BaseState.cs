@@ -12,7 +12,10 @@ public class BaseState
         this.stateMachine = stateMachine;
     }
 
-    public virtual void Enter(){}
+    public virtual void Enter()
+    {
+        // Debug.Log("Entering " + name);  
+    }
     public virtual void UpdateLogic(){}
     public virtual void UpdatePhysics(){}
     public virtual void Exit(){}

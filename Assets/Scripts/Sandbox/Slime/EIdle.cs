@@ -14,6 +14,7 @@ public class EIdle : EPatrol
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entering EIdle");
         
     }
 

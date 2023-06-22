@@ -5,12 +5,12 @@ using UnityEngine;
 public class EMovementSM : StateMachine
 {
 
-    [HideInInspector] public EIdle idleState;
-    [HideInInspector] public EJump jumpState;
-    [HideInInspector] public EJumpAttack jumpAttackState;
-    [SerializeField]  Rigidbody2D _rigidbody2D;
-    [SerializeField]  Animator _animator;
-    [SerializeField]  Target _target;
+    [HideInInspector] public EIdle _idleState;
+    [HideInInspector] public EJump _jumpState;
+    [HideInInspector] public EJumpAttack _jumpAttackState;
+    [SerializeField] public Rigidbody2D _rigidbody2D;
+    [SerializeField] public Animator _animator;
+    [SerializeField] public GameObject _target;
 
 
     public float _speed = 2f, _speedScale = 1.5f;
@@ -18,50 +18,43 @@ public class EMovementSM : StateMachine
 
     private void Awake() 
     {
-        idleState = new EIdle(this);
-        jumpState = new EJump(this);   
-        jumpAttackState = new EJumpAttack(this);
+        Debug.Log("EmovementSM");
 
-
-
-        
+        _target = GameObject.FindWithTag("Player");
+        _idleState = new EIdle(this);
+        _jumpState = new EJump(this);   
+        _jumpAttackState = new EJumpAttack(this);
     }
 
-    private void Start() {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        if (_rigidbody2D == null)
-            Debug.LogWarning("MovementSM.cs:No Rigidbody2D");
 
-        _animator = GetComponent<Animator>();
-        if (_animator == null)
-            Debug.LogWarning("MovementSM.cs: No Animator");
+    // private void Start() {
+    //     _rigidbody2D = GetComponent<Rigidbody2D>();
+    //     if (_rigidbody2D == null)
+    //         Debug.LogWarning("MovementSM.cs:No Rigidbody2D");
 
-        if (_target != null)
-            Debug.LogWarning("Yes");
-    }
+    //     _animator = GetComponent<Animator>();
+    //     if (_animator == null)
+    //         Debug.LogWarning("MovementSM.cs: No Animator");    
+
+       
+    // }
 
 
     protected override BaseState GetInitialState()
     {
-        return idleState;
+        return _idleState;
     }
 
     public void DisableMovement()
     {
         _rigidbody2D.velocity = Vector2.zero;
-        jumpState.SetMovable(0);
+        _jumpState.SetMovable(0);
     }
 
     public void EnableMovement()
     {
-        jumpState.SetMovable(1);
+        _jumpState.SetMovable(1);
     }
-
-    public GameObject GetTarget()
-    {
-        return _target.GetTarget();
-    }
-
     public Rigidbody2D GetRigidbody2D()
     {
         return _rigidbody2D;
@@ -70,5 +63,10 @@ public class EMovementSM : StateMachine
     public Animator GetAnimator()
     {
         return _animator;
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        _target = target;
     }
 }
