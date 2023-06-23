@@ -5,12 +5,11 @@ public class SlimeSpawner : MonoBehaviour
 {
     [SerializeField] GameObject _slimePrefab;
     [SerializeField] public GameObject _target;
-    float spawnRadius = 5f;
-    float spawnInterval = 2f;
+    float spawnRadius = 9f;
+    float spawnInterval = 3.5f;
 
     private void Start()
     {
-        Debug.Log("SlimeSpawner");
         StartCoroutine(SpawnSlimes());
         // _target = GameObject.FindWithTag("Player");
         // if (_target == null)

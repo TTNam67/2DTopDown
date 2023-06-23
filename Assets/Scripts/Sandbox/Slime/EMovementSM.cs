@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EMovementSM : StateMachine
+namespace Slime
+{
+    public class EMovementSM : StateMachine
 {
 
     [HideInInspector] public EIdle _idleState;
@@ -18,7 +20,6 @@ public class EMovementSM : StateMachine
 
     private void Awake() 
     {
-        Debug.Log("EmovementSM");
 
         _target = GameObject.FindWithTag("Player");
         _idleState = new EIdle(this);
@@ -69,4 +70,5 @@ public class EMovementSM : StateMachine
     {
         _target = target;
     }
+}
 }

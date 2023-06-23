@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EJumpAttack : BaseState
+namespace Slime
+{
+    public class EJumpAttack : BaseState
 {
     Animator _animator;
     EMovementSM _eMovementSM;
@@ -54,4 +56,5 @@ public class EJumpAttack : BaseState
         _animator.SetBool(a_isJumpAttack, false);
         _eMovementSM._jumpState.SetSpeedScale(1f);
     }
+}
 }

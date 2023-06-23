@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EJump : EPatrol
+namespace Slime
+{
+    public class EJump : EPatrol
 {
     string a_isJump = "isJump";
 
@@ -63,4 +65,5 @@ public class EJump : EPatrol
     {
         _eMovementSM._speedScale = speedScale;
     }
+}
 }

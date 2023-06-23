@@ -8,9 +8,7 @@ public class StateMachine : MonoBehaviour
     BaseState _currentState;
     void Start()
     {
-        Debug.LogWarning("State Machine started");
         _currentState = GetInitialState();
-        Debug.LogWarning("Current State " + _currentState.name); 
         if (_currentState != null)
             _currentState.Enter();
     }
@@ -48,6 +46,11 @@ public class StateMachine : MonoBehaviour
 
         _currentState = newState;
         _currentState.Enter();
+    }
+
+    public BaseState CurrentState()
+    {
+        return _currentState;
     }
 }
 

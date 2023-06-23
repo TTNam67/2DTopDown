@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EIdle : EPatrol
+namespace Slime
+{
+    public class EIdle : EPatrol
 {
     // private string _aniCondition;
     private string a_isIdle = "isIdle";
@@ -14,7 +16,6 @@ public class EIdle : EPatrol
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entering EIdle");
         
     }
 
@@ -23,4 +24,6 @@ public class EIdle : EPatrol
         base.UpdateLogic();
         
     }
+}    
 }
+
