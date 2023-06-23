@@ -10,36 +10,47 @@ namespace Slime
     [HideInInspector] public EIdle _idleState;
     [HideInInspector] public EJump _jumpState;
     [HideInInspector] public EJumpAttack _jumpAttackState;
+    [HideInInspector] public EDie _dieState;
     [SerializeField] public Rigidbody2D _rigidbody2D;
     [SerializeField] public Animator _animator;
     [SerializeField] public GameObject _target;
+    [SerializeField] public CapsuleCollider2D _capsuleCollider2D;
+    [SerializeField] public Health _health;
+    [SerializeField] public SpriteRenderer _spriteRenderer;
 
 
-    public float _speed = 2f, _speedScale = 1.5f;
+    public float _speed = 1.5f, _speedScale = 1.2f;
     public float _attackRange = 7f;
 
     private void Awake() 
     {
 
         _target = GameObject.FindWithTag("Player");
+
         _idleState = new EIdle(this);
         _jumpState = new EJump(this);   
         _jumpAttackState = new EJumpAttack(this);
+        _dieState = new EDie(this);
+
+        // _health = GetComponent<Health>();
+        // if (_health == null)
+        //     Debug.LogWarning("EMovementSM.cs: Health is null");
+
+        //     _rigidbody2D = GetComponent<Rigidbody2D>();
+        //     if (_rigidbody2D == null)
+        //         Debug.LogWarning("MovementSM.cs:No Rigidbody2D");
+
+        //     _animator = GetComponent<Animator>();
+        //     if (_animator == null)
+        //         Debug.LogWarning("MovementSM.cs: No Animator");  
+
     }
 
-
-    // private void Start() {
-    //     _rigidbody2D = GetComponent<Rigidbody2D>();
-    //     if (_rigidbody2D == null)
-    //         Debug.LogWarning("MovementSM.cs:No Rigidbody2D");
-
-    //     _animator = GetComponent<Animator>();
-    //     if (_animator == null)
-    //         Debug.LogWarning("MovementSM.cs: No Animator");    
-
-       
+    // Nếu có hàm Start() thì enemy sẽ không target được vào player
+    // private void Start() 
+    // {
+     
     // }
-
 
     protected override BaseState GetInitialState()
     {
@@ -56,19 +67,11 @@ namespace Slime
     {
         _jumpState.SetMovable(1);
     }
-    public Rigidbody2D GetRigidbody2D()
+
+    public void Destroy()
     {
-        return _rigidbody2D;
+        Destroy(this.gameObject);
     }
 
-    public Animator GetAnimator()
-    {
-        return _animator;
-    }
-
-    public void SetTarget(GameObject target)
-    {
-        _target = target;
-    }
 }
 }

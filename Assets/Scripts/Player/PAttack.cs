@@ -23,7 +23,6 @@ namespace Player
         base.Enter();
         _animator.SetBool(a_isAttack, true);
         _pStateMachine.DisableMovement();
-        // _pStateMachine._rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.AddForce(-_rigidbody2D.velocity, ForceMode2D.Impulse);
     }
 

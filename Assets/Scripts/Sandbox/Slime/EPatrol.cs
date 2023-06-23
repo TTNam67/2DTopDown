@@ -13,12 +13,15 @@ namespace Slime
     protected GameObject _target;
     protected int _movable = 0;
     protected Vector2 _direction;
+    protected Health _health;
+
     public EPatrol(string name, EMovementSM stateMachine) : base(name, stateMachine)
     {
         _eMovementSM = (EMovementSM)stateMachine;
         _animator = _eMovementSM._animator;
         _rigidbody2D = _eMovementSM._rigidbody2D;
         _target = _eMovementSM._target;
+        _health = _eMovementSM._health;
     }
 
     public override void Enter()
@@ -30,6 +33,9 @@ namespace Slime
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        if (_health.isDead())
+            _eMovementSM.ChangeState(_eMovementSM._dieState);
+
         float distane = Vector2.Distance(_target.transform.position, _rigidbody2D.position);
 
         // if target is in enemy's attackRange and the enemy is on the ground --> Change to jumpAttack state
