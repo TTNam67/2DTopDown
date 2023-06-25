@@ -6,7 +6,7 @@ public class SlimeSpawner : MonoBehaviour
     [SerializeField] GameObject _slimePrefab;
     [SerializeField] public GameObject _target;
     float spawnRadius = 9f;
-    float spawnInterval = 3.5f;
+    float spawnInterval = 2.4f;
 
     private void Start()
     {

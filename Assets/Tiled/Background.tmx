@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" source="Tilesets/Grass &amp; Grave Path.tsx"/>
+ <tileset firstgid="65" source="Tilesets/Stone Ground.tsx"/>
+ <tileset firstgid="219" source="Tilesets/Wall.tsx"/>
+ <tileset firstgid="499" source="Tilesets/Plant.tsx"/>
+ <layer id="4" name="Grass" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1qENADAMA0EPEBV2/1GrrlCUKgeOPzBwJSkAAACAT+0GDddq0MAMtgYAMIPfBwDw5gCrnXVB
+  </data>
+ </layer>
+ <layer id="2" name="Path and Stone Ground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzlmt1OwzAMhf0uCIQ0hDTGDZPYKwDX/D0O4q1pJCw8106c1k5ScSRr2lq152vi1Em2B4ATjKkrFo9T7Fk8THFLvvdk4X7R8x3MfXP/qCPYWaT7WQI98ThljlEG9ExDEmXReKQ21e6/NCS/mmdNOZYaBs2LJbzEWST/yODx7CKl5ZWUW5qejRGtC1jmHzUKB/Wfk9VvLw7Mk5JG58D8LmlkDjpGlTQyB75HS7kBMC4HrWksGpWD1jUWjcxhzY2cXqf4hnPPX1O8rbimtR6n+W3JjZKe4JzjZcW1Dr++bgznIoPlXIsiOCxtUqrbaxXBkeK+cC6vCdey9OKgOY7j1hq9T/FB4nPFtZZyIMsI6w98faGmX9H5nVfeL9EO5v39P3FIObIlDux/OO8+wh/TljhoGyQdYNz2wDUv/rtUj1COnmOWtl4j5TJviyTK0atNcmtO0roTzQsUcvR6j5T8S5KOUY7WLNraZakG147jmMXXlaNUWrtcKzoGe9SPltz1ZkDVstR4LY1D3tJYPDxr4dkWGkv6vA7wTp9V5HjP9xYiI/q9ldu32xJHqzZpVUdE87Ssh3idtlWOJDqGSfvGGJY9UNrGrTnoPCy3920RnXO05OD7+PyZ14pytKxN6fP3eP/uYN4nIyX9/8NLlv9XeIgz1O5LlyTNy71zhdeFkbWcJ0dufI9iSOJ5kvrW5cJr9WJA8blCLld+AP6QxZQ=
+  </data>
+ </layer>
+ <layer id="3" name="Wall" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1bEOwVAUh/HTiM0uJg/gKTAYMGIw4D08hDfEbJK2YRH+TTpcQ5sr3NL4fsmXdGjac26HmgGoyk1tI7OjlXf62oR+LmqnPVIr7+75vG4UYspne3Vwys557Pnes7oGmep1sUqcsnNe1XCP3hvfnD0+jz3YI4SG9hipoeqrQX49Ldhv4tzTVK0K/g0+2ppjqRZqpub59aZgvrVzT+dHdgAAAAAAAAAAAAD+yQOJnDGz
+  </data>
+ </layer>
+</map>

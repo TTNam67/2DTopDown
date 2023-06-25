@@ -43,39 +43,39 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
+  - name: 
     uniqueID: 2752091225
     locked: 0
-  - name: New Layer 2
+  - name: Ground
     uniqueID: 3921899185
     locked: 0
-  - name: New Layer 3
+  - name: Path and Floor
     uniqueID: 2383717085
     locked: 0
-  - name: New Layer 4
-    uniqueID: 3983121209
-    locked: 0
-  - name: BG
+  - name: 
     uniqueID: 3012755439
     locked: 0
-  - name: New Layer 6
+  - name: 
     uniqueID: 3148947773
     locked: 0
-  - name: Player
+  - name: Player and Enemy
     uniqueID: 964693393
     locked: 0
-  - name: New Layer 8
+  - name: 
     uniqueID: 2951138407
     locked: 0
   - name: Weapon
     uniqueID: 3412454339
     locked: 0
-  - name: New Layer 10
+  - name: 
     uniqueID: 3043779025
     locked: 0
-  - name: New Layer 11
+  - name: Wall
+    uniqueID: 3983121209
+    locked: 0
+  - name: 
     uniqueID: 555548131
     locked: 0
-  - name: New Layer 12
+  - name: 
     uniqueID: 4184907013
     locked: 0

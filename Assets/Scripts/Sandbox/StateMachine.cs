@@ -27,13 +27,13 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        GUILayout.BeginArea(new Rect(10f, 10f, 200f, 100f));
-        string content = _currentState != null ? _currentState.name : "No current state";
-        GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
-        GUILayout.EndArea();
-    }
+    // private void OnGUI()
+    // {
+    //     GUILayout.BeginArea(new Rect(10f, 10f, 200f, 100f));
+    //     string content = _currentState != null ? _currentState.name : "No current state";
+    //     GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
+    //     GUILayout.EndArea();
+    // }
 
     protected virtual BaseState GetInitialState()
     {
