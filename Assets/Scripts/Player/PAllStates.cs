@@ -15,6 +15,7 @@ namespace Player
         protected string a_isMoving = "isMoving";
         protected string a_isDead = "isDead";
         protected string a_isAttack = "isAttack";
+
         public PAllStates(string name, StateMachine stateMachine) : base(name, stateMachine)
         {
             _pStateMachine = (PStateMachine)stateMachine;
@@ -26,13 +27,16 @@ namespace Player
         public override void UpdateLogic()
         {
             base.UpdateLogic();
+            // Debug.Log(name);
             CheckDead();
         }
 
         private void CheckDead()
         {
             if (_animator.GetBool(a_isDead))
+            {
                 _pStateMachine.ChangeState(_pStateMachine._pDieState);
+            }
         }
     }
 }

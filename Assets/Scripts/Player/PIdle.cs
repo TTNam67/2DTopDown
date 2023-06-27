@@ -15,7 +15,7 @@ namespace Player
 
         public override void Enter()
         {
-            _pStateMachine.DisableMovement();
+            // _pStateMachine.DisableMovement();    
         }
 
 

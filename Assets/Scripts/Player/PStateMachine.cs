@@ -19,6 +19,7 @@ namespace Player
         Weapon _weapon;
 
         public float _speed = 12f;
+        public int _movable = 1;
 
         private void Awake()
         {

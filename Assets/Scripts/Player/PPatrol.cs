@@ -23,16 +23,13 @@ namespace Player
         public override void UpdateLogic()
         {
             base.UpdateLogic();
-            // CheckDead();
-            CheckAttack();
-            CheckMoving();
+            if (_animator.GetBool(a_isDead) == false)
+            {
+                CheckAttack();
+                CheckMoving();
+            }
         }
 
-        private void CheckDead()
-        {
-            if (_animator.GetBool(a_isDead))
-                _pStateMachine.ChangeState(_pStateMachine._pDieState);
-        }
 
         private void CheckAttack()
         {

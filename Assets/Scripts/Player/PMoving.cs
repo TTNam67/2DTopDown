@@ -7,8 +7,6 @@ namespace Player
     
     public class PMoving : PPatrol
     {
-        
-        int _movable = 1;
 
         public PMoving(StateMachine stateMachine) : base("PMoving", stateMachine)
         {
@@ -19,7 +17,6 @@ namespace Player
         {
             base.Enter();
             _animator.SetBool(a_isMoving, true);
-            _pStateMachine.EnableMovement();
         }
 
         public override void UpdateLogic()
@@ -27,7 +24,7 @@ namespace Player
             base.UpdateLogic();
             // Debug.Log("hori" + _horizontalInput + ", vertical" + _verticalInput);
 
-            Vector2 velo = new Vector2(_horizontalInput, _verticalInput) * _pStateMachine._speed * _movable;
+            Vector2 velo = new Vector2(_horizontalInput, _verticalInput) * _pStateMachine._speed * _pStateMachine._movable;
 
             // Debug.Log("velo" + velo);
             _rigidbody2D.velocity = velo;
@@ -50,7 +47,7 @@ namespace Player
 
         public void SetMovable(int movable)
         {
-            _movable = movable;
+            _pStateMachine._movable = movable;
         }
     }
 }

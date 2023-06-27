@@ -14,9 +14,7 @@ namespace Player
         public override void Enter()
         {
             base.Enter();
-            
             _capsuleCollider2D.enabled = false;
-            
         }
 
         public override void UpdateLogic()

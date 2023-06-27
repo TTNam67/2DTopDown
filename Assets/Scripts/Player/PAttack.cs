@@ -38,7 +38,9 @@ namespace Player
         public override void Exit()
         {
             base.Exit();
+            _pStateMachine.EnableMovement();
             _animator.SetBool(a_isAttack, false);
+            
         }
 
         
