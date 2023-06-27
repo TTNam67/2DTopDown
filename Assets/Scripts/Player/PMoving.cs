@@ -7,7 +7,7 @@ namespace Player
     
     public class PMoving : PPatrol
     {
-        string a_isMoving = "isMoving";
+        
         int _movable = 1;
 
         public PMoving(StateMachine stateMachine) : base("PMoving", stateMachine)

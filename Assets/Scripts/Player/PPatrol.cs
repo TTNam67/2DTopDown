@@ -4,19 +4,15 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PPatrol : BaseState
+    public class PPatrol : PAllStates
     {
-        protected Animator _animator;
-        protected Rigidbody2D _rigidbody2D;
-        protected PStateMachine _pStateMachine;
         protected float _horizontalInput;
         protected float _verticalInput;
+
+        
         
         public PPatrol(string name, StateMachine stateMachine) : base(name, stateMachine)
         {
-            _pStateMachine = (PStateMachine) stateMachine;
-            _animator = _pStateMachine._animator;
-            _rigidbody2D = _pStateMachine._rigidbody2D;
         }
 
         public override void Enter()
@@ -27,14 +23,29 @@ namespace Player
         public override void UpdateLogic()
         {
             base.UpdateLogic();
-            _horizontalInput = Input.GetAxis("Horizontal");
-            _verticalInput = Input.GetAxis("Vertical");
+            // CheckDead();
+            CheckAttack();
+            CheckMoving();
+        }
 
+        private void CheckDead()
+        {
+            if (_animator.GetBool(a_isDead))
+                _pStateMachine.ChangeState(_pStateMachine._pDieState);
+        }
+
+        private void CheckAttack()
+        {
             if (Input.GetKeyDown(KeyCode.T))
             {
                 _pStateMachine.ChangeState(_pStateMachine._pAttackState);
             }
-            
+        }
+
+        private void CheckMoving()
+        {
+            _horizontalInput = Input.GetAxis("Horizontal");
+            _verticalInput = Input.GetAxis("Vertical");
             if (_pStateMachine.CurrentState() != _pStateMachine._pAttackState)
             {
                 if (Mathf.Abs(_horizontalInput) > Mathf.Epsilon

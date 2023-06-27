@@ -7,14 +7,14 @@ namespace Slime
     public class EDie : BaseState
     {
         Animator _animator;
-        EMovementSM _eMovementSM;
+        EStateMachine _eMovementSM;
         CapsuleCollider2D _capsuleCollider2D;
         SpriteRenderer _spriteRenderer;
-        string a_isDie = "isDie";
+        string a_isDead = "isDead";
 
         public EDie(StateMachine stateMachine) : base("EDie", stateMachine)
         {
-            _eMovementSM = (EMovementSM) stateMachine;
+            _eMovementSM = (EStateMachine) stateMachine;
             _animator = _eMovementSM._animator;
             _capsuleCollider2D = _eMovementSM._capsuleCollider2D;
             _spriteRenderer = _eMovementSM._spriteRenderer;
@@ -23,7 +23,7 @@ namespace Slime
         public override void Enter()
         {
             base.Enter();
-            _animator.SetBool(a_isDie, true);
+            _animator.SetBool(a_isDead, true);
             _capsuleCollider2D.enabled = false;
             _eMovementSM.DisableMovement();
         }

@@ -9,7 +9,7 @@ namespace Slime
         string a_isJump = "isJump";
 
 
-        public EJump(EMovementSM stateMachine) : base("EJump", stateMachine)
+        public EJump(EStateMachine stateMachine) : base("EJump", stateMachine)
         {
 
         }

@@ -14,7 +14,9 @@ namespace Player
         public Rigidbody2D _rigidbody2D;
         public SpriteRenderer _spriteRenderer;
         public Animator _animator;
-        // PAttack _pAttack;
+        public Health _health;
+        public CapsuleCollider2D _capsuleCollider2D;
+        Weapon _weapon;
 
         public float _speed = 12f;
 
@@ -45,6 +47,11 @@ namespace Player
         public void EnableMovement()
         {
             _pMovingState.SetMovable(1);
+        }
+
+        public void Destroy()
+        {
+            Destroy(this.gameObject);
         }
         
     }

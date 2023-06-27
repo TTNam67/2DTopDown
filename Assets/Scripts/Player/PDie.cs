@@ -4,22 +4,35 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PDie : BaseState
+    public class PDie : PAllStates
     {
         public PDie(StateMachine stateMachine) : base("PDie", stateMachine)
         {
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
             
         }
 
-        // Update is called once per frame
-        void Update()
+        public override void Enter()
         {
+            base.Enter();
+            
+            _capsuleCollider2D.enabled = false;
             
         }
+
+        public override void UpdateLogic()
+        {
+            base.UpdateLogic();
+        }
+
+        public override void UpdatePhysics()
+        {
+            base.UpdatePhysics();
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+        }
+
     }
 }

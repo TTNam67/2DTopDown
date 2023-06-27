@@ -7,7 +7,7 @@ namespace Slime
     public class EJumpAttack : BaseState
     {
         Animator _animator;
-        EMovementSM _eMovementSM;
+        EStateMachine _eMovementSM;
         Transform _target;
         Rigidbody2D _rigidbody2D;
         Health _health;
@@ -17,9 +17,11 @@ namespace Slime
         float _horizontalInput;
         float _verticalInput;
 
+        string a_isDead = "isDead";
+
         public EJumpAttack(StateMachine stateMachine) : base("EJumpAttack", stateMachine)
         {
-            _eMovementSM = (EMovementSM)stateMachine;
+            _eMovementSM = (EStateMachine)stateMachine;
             _animator = _eMovementSM._animator;
             _target = _eMovementSM._target.transform;
             _rigidbody2D = _eMovementSM._rigidbody2D;
@@ -35,9 +37,10 @@ namespace Slime
 
         public override void UpdateLogic()
         {
+            // Debug.Log("something");
             base.UpdateLogic();
 
-            if (_health.isDead())
+            if (_animator.GetBool(a_isDead))
                 _eMovementSM.ChangeState(_eMovementSM._dieState);
 
             if (Vector2.Distance(_target.transform.position, _rigidbody2D.position) > _eMovementSM._attackRange)
@@ -62,5 +65,7 @@ namespace Slime
             _animator.SetBool(a_isJumpAttack, false);
             _eMovementSM._jumpState.SetSpeedScale(1f);
         }
+
+        
     }
 }

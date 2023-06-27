@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Slime
 {
-    public class EMovementSM : StateMachine
-{
+    public class EStateMachine : StateMachine
+    {
 
     [HideInInspector] public EIdle _idleState;
     [HideInInspector] public EJump _jumpState;
@@ -20,7 +20,7 @@ namespace Slime
 
 
     public float _speed = 1.5f, _speedScale = 1.2f;
-    public float _attackRange = 7f;
+    public float _attackRange = 7f, _attackDamage = 6f;
 
     private void Awake() 
     {
@@ -32,17 +32,27 @@ namespace Slime
         _jumpAttackState = new EJumpAttack(this);
         _dieState = new EDie(this);
 
+        // _rigidbody2D = GetComponent<Rigidbody2D>();
+        // if (_rigidbody2D == null)
+        //     Debug.LogWarning("MovementSM.cs:No Rigidbody2D");
+
+        // _animator = GetComponent<Animator>();
+        // if (_animator == null)
+        //     Debug.LogWarning("MovementSM.cs: No Animator");
+
+        // _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        // if (_capsuleCollider2D == null)
+        //     Debug.LogWarning("MovementSM.cs: No CapsuleCollider2D");
+
         // _health = GetComponent<Health>();
         // if (_health == null)
         //     Debug.LogWarning("EMovementSM.cs: Health is null");
 
-        //     _rigidbody2D = GetComponent<Rigidbody2D>();
-        //     if (_rigidbody2D == null)
-        //         Debug.LogWarning("MovementSM.cs:No Rigidbody2D");
+        // _spriteRenderer = GetComponent<SpriteRenderer>();
+        // if (_spriteRenderer == null)
+        //         Debug.LogWarning("EMovementSM.cs: SpriteRenderer is null");
 
-        //     _animator = GetComponent<Animator>();
-        //     if (_animator == null)
-        //         Debug.LogWarning("MovementSM.cs: No Animator");  
+        
 
     }
 
@@ -73,5 +83,10 @@ namespace Slime
         Destroy(this.gameObject);
     }
 
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        print(other.collider.name);
+        _target.GetComponent<Health>().TakeDamage(_attackDamage);
+    }
 }
 }

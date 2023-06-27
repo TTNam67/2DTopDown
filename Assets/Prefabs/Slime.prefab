@@ -220,9 +220,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0058250427, y: 0.15727341}
-  m_Size: {x: 0.9883499, y: 0.9883499}
-  m_Direction: 0
+  m_Offset: {x: -0.0014920281, y: -0.03767473}
+  m_Size: {x: 0.8237314, y: 0.5984648}
+  m_Direction: 1
 --- !u!50 &8797653325755936332
 Rigidbody2D:
   serializedVersion: 4
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6835723293266814203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e5c8b6c395d95f41bd90c7ba88d5292, type: 3}
+  m_Script: {fileID: 11500000, guid: 64ae1ca03814fee40a9fa8b4b1bd6edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 8797653325755936332}
@@ -261,9 +261,9 @@ MonoBehaviour:
   _target: {fileID: 0}
   _capsuleCollider2D: {fileID: 981053302941464968}
   _health: {fileID: -3610509240692577520}
-  _spriteRenderer: {fileID: 0}
-  _speed: 2
-  _speedScale: 2.5
+  _spriteRenderer: {fileID: 6835723293266814202}
+  _speed: 1.8
+  _speedScale: 1.2
   _attackRange: 7
 --- !u!114 &-3610509240692577520
 MonoBehaviour:

@@ -53,5 +53,3 @@ public class StateMachine : MonoBehaviour
         return _currentState;
     }
 }
-
-

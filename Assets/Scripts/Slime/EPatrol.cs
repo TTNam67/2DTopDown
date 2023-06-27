@@ -7,7 +7,7 @@ namespace Slime
     public class EPatrol : BaseState
 {
 
-    protected EMovementSM _eMovementSM;
+    protected EStateMachine _eMovementSM;
     protected Animator _animator;
     protected Rigidbody2D _rigidbody2D;
     protected GameObject _target;
@@ -15,9 +15,11 @@ namespace Slime
     protected Vector2 _direction;
     protected Health _health;
 
-    public EPatrol(string name, EMovementSM stateMachine) : base(name, stateMachine)
+    string a_isDead = "isDead";
+
+    public EPatrol(string name, EStateMachine stateMachine) : base(name, stateMachine)
     {
-        _eMovementSM = (EMovementSM)stateMachine;
+        _eMovementSM = (EStateMachine)stateMachine;
         _animator = _eMovementSM._animator;
         _rigidbody2D = _eMovementSM._rigidbody2D;
         _target = _eMovementSM._target;
@@ -33,7 +35,7 @@ namespace Slime
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        if (_health.isDead())
+        if (_animator.GetBool(a_isDead))
             _eMovementSM.ChangeState(_eMovementSM._dieState);
 
         float distane = Vector2.Distance(_target.transform.position, _rigidbody2D.position);
