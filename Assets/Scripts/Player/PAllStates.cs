@@ -35,6 +35,7 @@ namespace Player
         {
             if (_animator.GetBool(a_isDead))
             {
+                
                 _pStateMachine.ChangeState(_pStateMachine._pDieState);
             }
         }

@@ -6,7 +6,7 @@ namespace Slime
 {
     public class EJump : EPatrol
     {
-        string a_isJump = "isJump";
+        
 
 
         public EJump(EStateMachine stateMachine) : base("EJump", stateMachine)

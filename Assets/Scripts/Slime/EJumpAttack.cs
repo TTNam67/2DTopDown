@@ -4,26 +4,19 @@ using UnityEngine;
 
 namespace Slime
 {
-    public class EJumpAttack : BaseState
+    public class EJumpAttack : EAllStates
     {
-        Animator _animator;
-        EStateMachine _eMovementSM;
-        Transform _target;
-        Rigidbody2D _rigidbody2D;
-        Health _health;
         
-        string a_isJumpAttack = "isJumpAttack";
+        
         float _speedScale = 2.2f;
         float _horizontalInput;
         float _verticalInput;
-
-        string a_isDead = "isDead";
 
         public EJumpAttack(StateMachine stateMachine) : base("EJumpAttack", stateMachine)
         {
             _eMovementSM = (EStateMachine)stateMachine;
             _animator = _eMovementSM._animator;
-            _target = _eMovementSM._target.transform;
+            // _target = _eMovementSM._target.transform;
             _rigidbody2D = _eMovementSM._rigidbody2D;
             _health = _eMovementSM._health;
         }

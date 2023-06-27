@@ -6,7 +6,6 @@ namespace Slime
 {
     public class EIdle : EPatrol
     {
-        private string a_isIdle = "isIdle";
         public EIdle(EStateMachine stateMachine) : base("EIdle", stateMachine)
         {
             

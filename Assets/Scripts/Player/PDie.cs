@@ -15,6 +15,7 @@ namespace Player
         {
             base.Enter();
             _capsuleCollider2D.enabled = false;
+            _pStateMachine.DisableMovement();
         }
 
         public override void UpdateLogic()

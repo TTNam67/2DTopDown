@@ -4,20 +4,12 @@ using UnityEngine;
 
 namespace Slime
 {
-    public class EDie : BaseState
+    public class EDie : EAllStates
     {
-        Animator _animator;
-        EStateMachine _eMovementSM;
-        CapsuleCollider2D _capsuleCollider2D;
-        SpriteRenderer _spriteRenderer;
-        string a_isDead = "isDead";
 
         public EDie(StateMachine stateMachine) : base("EDie", stateMachine)
         {
-            _eMovementSM = (EStateMachine) stateMachine;
-            _animator = _eMovementSM._animator;
-            _capsuleCollider2D = _eMovementSM._capsuleCollider2D;
-            _spriteRenderer = _eMovementSM._spriteRenderer;
+
         }
 
         public override void Enter()
