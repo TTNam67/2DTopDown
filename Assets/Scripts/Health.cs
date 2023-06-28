@@ -45,8 +45,8 @@ public class Health : MonoBehaviour
         
     }
 
-    private void Die()
+    public float GetHealthPoint()
     {
-
+        return _healthPoint;
     }
 }

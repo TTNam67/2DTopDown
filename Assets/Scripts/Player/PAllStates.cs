@@ -11,10 +11,14 @@ namespace Player
         protected Animator _animator;
         protected Rigidbody2D _rigidbody2D;
         protected CapsuleCollider2D _capsuleCollider2D;
+        protected Health _health;
+        protected HealthBar _healthBar;
 
         protected string a_isMoving = "isMoving";
         protected string a_isDead = "isDead";
         protected string a_isAttack = "isAttack";
+        
+        
 
         public PAllStates(string name, StateMachine stateMachine) : base(name, stateMachine)
         {
@@ -22,12 +26,20 @@ namespace Player
             _animator = _pStateMachine._animator;
             _rigidbody2D = _pStateMachine._rigidbody2D;
             _capsuleCollider2D = _pStateMachine._capsuleCollider2D;
+            _health = _pStateMachine._health;
+            _healthBar = _pStateMachine._healthBar;
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+            
         }
 
         public override void UpdateLogic()
         {
             base.UpdateLogic();
-            // Debug.Log(name);
+            _healthBar.SetHealth(_health.GetHealthPoint());
             CheckDead();
         }
 

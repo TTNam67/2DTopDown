@@ -9,8 +9,6 @@ namespace Player
         protected float _horizontalInput;
         protected float _verticalInput;
 
-        
-        
         public PPatrol(string name, StateMachine stateMachine) : base(name, stateMachine)
         {
         }

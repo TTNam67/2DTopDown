@@ -265,6 +265,7 @@ MonoBehaviour:
   _speed: 1.8
   _speedScale: 1.2
   _attackRange: 7
+  _attackDamage: 4
 --- !u!114 &-3610509240692577520
 MonoBehaviour:
   m_ObjectHideFlags: 0

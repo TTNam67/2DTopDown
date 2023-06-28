@@ -16,6 +16,7 @@ namespace Player
         public Animator _animator;
         public Health _health;
         public CapsuleCollider2D _capsuleCollider2D;
+        public HealthBar _healthBar;
         Weapon _weapon;
 
         public float _speed = 12f;
@@ -27,6 +28,8 @@ namespace Player
             _pMovingState = new PMoving(this);
             _pAttackState = new PAttack(this);
             _pDieState = new PDie(this);
+
+            _healthBar.SetMaxHealth(_health.GetHealthPoint());
         }
 
         protected override BaseState GetInitialState()
@@ -54,6 +57,5 @@ namespace Player
         {
             Destroy(this.gameObject);
         }
-        
     }
 }

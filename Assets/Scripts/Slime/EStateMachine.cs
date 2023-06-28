@@ -84,9 +84,13 @@ namespace Slime
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        print(other.collider.name);
-        _target.GetComponent<Health>().TakeDamage(_attackDamage);
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.collider.tag == "Player")
+        {
+            _target.GetComponent<Health>().TakeDamage(_attackDamage);
+
+        }
     }
 }
 }
