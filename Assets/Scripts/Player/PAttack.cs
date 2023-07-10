@@ -16,6 +16,8 @@ namespace Player
         public override void Enter()
         {
             base.Enter();
+            _weapon.SwordSlashSound();
+
             _animator.SetBool(a_isAttack, true);
             _pStateMachine.DisableMovement();
             _rigidbody2D.AddForce(-_rigidbody2D.velocity, ForceMode2D.Impulse);

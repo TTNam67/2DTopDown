@@ -6,6 +6,8 @@ namespace Player
 {
     public class PStateMachine : StateMachine
     {
+        Inventory _inventory;
+
         [HideInInspector] public PIdle _pIdleState;
         [HideInInspector] public PMoving _pMovingState;
         [HideInInspector] public PAttack _pAttackState;
@@ -17,7 +19,7 @@ namespace Player
         public Health _health;
         public CapsuleCollider2D _capsuleCollider2D;
         public HealthBar _healthBar;
-        Weapon _weapon;
+        public Weapon _weapon;
 
         public float _speed = 12f;
         public int _movable = 1;
@@ -30,6 +32,12 @@ namespace Player
             _pDieState = new PDie(this);
 
             _healthBar.SetMaxHealth(_health.GetHealthPoint());
+
+            // _weapon = GetComponentInChildren<Weapon>();
+            // if (_weapon == null)
+            //     Debug.LogWarning("PStateMachine.cs: Weapon is null.");
+
+            _inventory = new Inventory();
         }
 
         protected override BaseState GetInitialState()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    float _damage = 90f;
+    float _damage = 90f, _swordSlashSoundScale = 0.6f;
     AudioSource _audioSource;
     [SerializeField] AudioClip _audioClip;    
     private void Start() 
@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
             Debug.LogWarning("Weapon.cs: AudioSource is null");
 
         _audioSource.clip = _audioClip;
+        _audioSource.volume = _swordSlashSoundScale;
     }
 
     private void Update() 
@@ -36,5 +37,10 @@ public class Weapon : MonoBehaviour
         }
 
         print(other.transform.name);
+    }
+
+    public void SwordSlashSound()
+    {
+        _audioSource.Play();
     }
 }

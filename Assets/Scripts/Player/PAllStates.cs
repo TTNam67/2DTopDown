@@ -13,6 +13,7 @@ namespace Player
         protected CapsuleCollider2D _capsuleCollider2D;
         protected Health _health;
         protected HealthBar _healthBar;
+        protected Weapon _weapon;
 
         protected string a_isMoving = "isMoving";
         protected string a_isDead = "isDead";
@@ -28,6 +29,7 @@ namespace Player
             _capsuleCollider2D = _pStateMachine._capsuleCollider2D;
             _health = _pStateMachine._health;
             _healthBar = _pStateMachine._healthBar;
+            _weapon = _pStateMachine._weapon;
         }
 
         public override void Enter()
