@@ -987,6 +987,7 @@ MonoBehaviour:
   _health: {fileID: 1734784317}
   _capsuleCollider2D: {fileID: 1734784316}
   _healthBar: {fileID: 1245053774}
+  _weapon: {fileID: 1865088103}
   _speed: 7
   _movable: 1
 --- !u!50 &1734784314
@@ -1197,7 +1198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b528e7c1eb3674d8604a771bb37e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: fffb07be4efa67e4b8f39e1bf1036f24, type: 3}
+  _audioClip: {fileID: 8300000, guid: db7602348a81d464993f4f2092b10d8e, type: 3}
 --- !u!82 &1865088104
 AudioSource:
   m_ObjectHideFlags: 0

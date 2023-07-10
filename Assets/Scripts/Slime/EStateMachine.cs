@@ -11,16 +11,19 @@ namespace Slime
     [HideInInspector] public EJump _jumpState;
     [HideInInspector] public EJumpAttack _jumpAttackState;
     [HideInInspector] public EDie _dieState;
-    [SerializeField] public Rigidbody2D _rigidbody2D;
-    [SerializeField] public Animator _animator;
-    [SerializeField] public GameObject _target;
-    [SerializeField] public CapsuleCollider2D _capsuleCollider2D;
-    [SerializeField] public Health _health;
-    [SerializeField] public SpriteRenderer _spriteRenderer;
+    public Rigidbody2D _rigidbody2D;
+    public Animator _animator;
+    public GameObject _target;
+    public CapsuleCollider2D _capsuleCollider2D;
+    public Health _health;
+    public SpriteRenderer _spriteRenderer;
+    public AudioSource _audioSource;
+
+    public AudioClip _dieClip;
 
 
-    public float _speed = 1.5f, _speedScale = 1.2f;
-    public float _attackRange = 7f, _attackDamage = 6f;
+    [HideInInspector] public float _speed = 1.5f, _speedScale = 1.2f;
+    [HideInInspector] public float _attackRange = 7f, _attackDamage = 6f;
 
     private void Awake() 
     {

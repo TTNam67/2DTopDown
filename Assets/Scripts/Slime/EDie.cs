@@ -6,7 +6,7 @@ namespace Slime
 {
     public class EDie : EAllStates
     {
-
+        float _dieClipVolume = .05f;
         public EDie(StateMachine stateMachine) : base("EDie", stateMachine)
         {
 
@@ -15,6 +15,10 @@ namespace Slime
         public override void Enter()
         {
             base.Enter();
+            _audioSource.clip = _dieClip;
+            _audioSource.volume = _dieClipVolume;
+            _audioSource.Play();
+
             _animator.SetBool(a_isDead, true);
             _capsuleCollider2D.enabled = false;
             _eMovementSM.DisableMovement();

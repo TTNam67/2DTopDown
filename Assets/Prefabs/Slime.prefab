@@ -262,6 +262,8 @@ MonoBehaviour:
   _capsuleCollider2D: {fileID: 981053302941464968}
   _health: {fileID: -3610509240692577520}
   _spriteRenderer: {fileID: 6835723293266814202}
+  _audioSource: {fileID: 6835723293266815745}
+  _dieClip: {fileID: 8300000, guid: 318dcdba079167c40b8cf2949f769b83, type: 3}
   _speed: 1.8
   _speedScale: 1.2
   _attackRange: 7

@@ -13,8 +13,10 @@ namespace Slime
         protected Health _health;
         protected CapsuleCollider2D _capsuleCollider2D;
         protected SpriteRenderer _spriteRenderer;
+        protected AudioSource _audioSource;
 
         protected Vector2 _direction;
+        protected AudioClip _dieClip;
 
         protected string a_isDead = "isDead";
         protected string a_isJumpAttack = "isJumpAttack";
@@ -30,6 +32,9 @@ namespace Slime
             _health = _eMovementSM._health;
             _capsuleCollider2D = _eMovementSM._capsuleCollider2D;
             _spriteRenderer = _eMovementSM._spriteRenderer;
+            _audioSource = _eMovementSM._audioSource; 
+
+            _dieClip = _eMovementSM._dieClip;
         }
 
         public override void Enter()
