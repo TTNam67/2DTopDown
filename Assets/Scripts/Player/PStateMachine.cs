@@ -20,6 +20,7 @@ namespace Player
         public CapsuleCollider2D _capsuleCollider2D;
         public HealthBar _healthBar;
         public Weapon _weapon;
+        public FixedJoystick _fixedJoystick;
 
         public float _speed = 12f;
         public int _movable = 1;

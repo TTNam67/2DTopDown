@@ -18,7 +18,7 @@ namespace Player
         protected string a_isMoving = "isMoving";
         protected string a_isDead = "isDead";
         protected string a_isAttack = "isAttack";
-        
+        protected FixedJoystick _fixedJoystick;
         
 
         public PAllStates(string name, StateMachine stateMachine) : base(name, stateMachine)
@@ -30,6 +30,7 @@ namespace Player
             _health = _pStateMachine._health;
             _healthBar = _pStateMachine._healthBar;
             _weapon = _pStateMachine._weapon;
+            _fixedJoystick = _pStateMachine._fixedJoystick;
         }
 
         public override void Enter()

@@ -41,6 +41,10 @@ namespace Player
         {
             _horizontalInput = Input.GetAxis("Horizontal");
             _verticalInput = Input.GetAxis("Vertical");
+
+            _horizontalInput = _fixedJoystick.Horizontal;
+            _verticalInput = _fixedJoystick.Vertical;
+            
             if (_pStateMachine.CurrentState() != _pStateMachine._pAttackState)
             {
                 if (Mathf.Abs(_horizontalInput) > Mathf.Epsilon
