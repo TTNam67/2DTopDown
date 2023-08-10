@@ -126,12 +126,12 @@
  <tile id="120">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="18.1875" width="32" height="13.8125"/>
-   <object id="2" x="0" y="0" width="32" height="32"/>
+   <object id="2" x="0" y="-0.121212" width="32" height="32.1212"/>
   </objectgroup>
  </tile>
  <tile id="121">
   <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0.136364" width="32" height="31.8636"/>
+   <object id="1" x="0" y="-0.0454542" width="32" height="32.0454"/>
   </objectgroup>
  </tile>
  <tile id="122">

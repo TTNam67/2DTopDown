@@ -68,3 +68,4 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         SceneManager.LoadScene(1);
     }
 }
+

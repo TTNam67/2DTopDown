@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="1">
  <tileset firstgid="1" source="Tilesets/Grass &amp; Grave Path.tsx"/>
  <tileset firstgid="65" source="Tilesets/Stone Ground.tsx"/>
  <tileset firstgid="219" source="Tilesets/Wall.tsx"/>
@@ -7,6 +7,11 @@
  <layer id="4" name="Grass" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJzt1qENADAMA0EPEBV2/1GrrlCUKgeOPzBwJSkAAACAT+0GDddq0MAMtgYAMIPfBwDw5gCrnXVB
+  </data>
+ </layer>
+ <layer id="5" name="Flowers" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1ssNgCAQRdEJ/XdgB346sAJtypWJYYGQgRkI9+xcifDeoAgAYCZH8F4BSnBe9u6QfgZqaJGr3SCry+cd3t0YcT5eijWnvncz3IvTOGdWNP3523/L79FkzIN2bllmv4ZVuV6PbsykJE+Wd2Du3PW+l3vg0ZHcXr/zOT5Peq2Xs4fxOfXaF809TpbaGu0fCwAAAAAg8gD1xRo4
   </data>
  </layer>
  <layer id="2" name="Path and Stone Ground" width="50" height="50">

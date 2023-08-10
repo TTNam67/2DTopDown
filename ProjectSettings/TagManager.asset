@@ -49,33 +49,42 @@ TagManager:
   - name: Ground
     uniqueID: 3921899185
     locked: 0
-  - name: Path and Floor
-    uniqueID: 2383717085
-    locked: 0
-  - name: 
+  - name: Flower
     uniqueID: 3012755439
     locked: 0
   - name: 
     uniqueID: 3148947773
     locked: 0
+  - name: Path and Floor
+    uniqueID: 2383717085
+    locked: 0
+  - name: 
+    uniqueID: 2951138407
+    locked: 0
+  - name: 
+    uniqueID: 3043779025
+    locked: 0
   - name: Player and Enemy
     uniqueID: 964693393
     locked: 0
   - name: 
-    uniqueID: 2951138407
+    uniqueID: 555548131
     locked: 0
   - name: Weapon
     uniqueID: 3412454339
     locked: 0
   - name: 
-    uniqueID: 3043779025
+    uniqueID: 4184907013
     locked: 0
   - name: Wall
     uniqueID: 3983121209
     locked: 0
   - name: 
-    uniqueID: 555548131
+    uniqueID: 4108665445
     locked: 0
   - name: 
-    uniqueID: 4184907013
+    uniqueID: 1606722471
+    locked: 0
+  - name: 
+    uniqueID: 1689932553
     locked: 0

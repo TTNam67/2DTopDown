@@ -16,7 +16,7 @@ namespace Player
         public override void Enter()
         {
             base.Enter();
-            _weapon.SwordSlashSound();
+            // _weapon.SwordSlashSound();
 
             _animator.SetBool(a_isAttack, true);
             _pStateMachine.DisableMovement();

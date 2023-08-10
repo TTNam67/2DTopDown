@@ -66,5 +66,10 @@ namespace Player
         {
             Destroy(this.gameObject);
         }
+
+        public void ChangeToAttackState()
+        {
+            ChangeState(_pAttackState);
+        }
     }
 }
